@@ -19,3 +19,7 @@ body {
   top: 50%;
   left: 50%;
 }
+
+.eyes-wrapper {
+  display: flex;
+}
