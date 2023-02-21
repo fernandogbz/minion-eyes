@@ -59,3 +59,14 @@ body {
   position: relative;
 }
 
+.eyeball::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 0.7em;
+  width: 0.5em;
+  border-radius: 50%;
+  top: 13px;
+  left: 13px;
+  transform: rotate(45deg);
+}
