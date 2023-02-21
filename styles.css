@@ -36,3 +36,11 @@ body {
   top: 0;
   bottom: 0;
 }
+
+.eye {
+  width: 10em;
+  height: 10em;
+  border: 15px solid #a8a9ac;
+  background-color: #fff;
+  border-radius: 50%;
+}
