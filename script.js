@@ -1,5 +1,5 @@
 // Selecting the eye div
-let eyeRef = document.querySelectorAll(".eye");
+let eye_ref = document.querySelectorAll(".eye");
 
 //Mouse move for devices with mouse and touch move for touch screen devices
 let events = ["mousemove","touchmove"];
@@ -7,7 +7,7 @@ let events = ["mousemove","touchmove"];
 //Check for touch screen
 function isTouchDevice() {
   try{
-    document.createElement("touchEvent");
+    document.createEvent("TouchEvent");
     return true;
   } catch (e) {
     return false;
@@ -17,14 +17,14 @@ function isTouchDevice() {
 //Same function for both events
 events.forEach((eventType) => {
   document.body.addEventListener(eventType, (event) => {
-    eyeRef.forEach((eye) => {
+    eye_ref.forEach((eye) => {
       /*getBoundingClientRect() method returns the position relative to the viewport*/
       let eyeX = eye.getBoundingClientRect().left + eye.clientWidth / 2;
       let eyeY = eye.getBoundingClientRect().top + eye.clientHeight / 2;
 
       /* ClientX and ClientY return the position of clients cursor from top left of the screen */
-      let x = !isTouchDevice() ? event.clientX : event.touches[0].clientX;
-      let y = !isTouchDevice() ? event.clientY : event.touches[0].clientY;
+      var x = !isTouchDevice() ? event.clientX : event.touches[0].clientX;
+      var y = !isTouchDevice() ? event.clientY : event.touches[0].clientY;
       console.log(x,y)
 
       /*
@@ -35,6 +35,9 @@ events.forEach((eventType) => {
 
       //Convert Radians to Degrees
       let rotationDegrees = radian * (180 / Math.PI) * -1 + 180;
+
+      //Rotate the eye
+      eye.style.transform = "rotate(" + rotationDegrees + "deg)";
   });
   });
 });
