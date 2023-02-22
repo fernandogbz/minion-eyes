@@ -26,6 +26,12 @@ events.forEach((eventType) => {
       let x = !isTouchDevice() ? event.clientX : event.touches[0].clientX;
       let y = !isTouchDevice() ? event.clientY : event.touches[0].clientY;
       console.log(x,y)
+
+      /*
+      Subtract "x" position of mouse from "x" position of eye and "y" position of mouse from "y" position of eye.
+      Use atan2(returns angle in radians)
+      */
+      let radian = Math.atan2(x - eyeX, y - eye Y);
   });
   });
 });
