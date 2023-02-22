@@ -21,6 +21,11 @@ events.forEach((eventType) => {
       /*getBoundingClientRect() method returns the position relative to the viewport*/
       let eyeX = eye.getBoundingClientRect().left + eye.clientWidth / 2;
       let eyeY = eye.getBoundingClientRect().top + eye.clientHeight / 2;
+
+      /* ClientX and ClientY return the position of clients cursor from top left of the screen */
+      let x = !isTouchDevice() ? event.clientX : event.touches[0].clientX;
+      let y = !isTouchDevice() ? event.clientY : event.touches[0].clientY;
+      console.log(x,y)
   });
   });
 });
